@@ -1,0 +1,3 @@
+# Pipeline parallelism
+
+Scaling law继续推动了大语言模型规模的增长，参数，梯度和activation tensor的大小远超了单机器的容量，而机器之间的通信速度又显著慢于机器内，借鉴了计算机体系结构中的流水线思想，可以把模型划分成多个stage组成pipeline，并且stage内可使用其他并行方案。

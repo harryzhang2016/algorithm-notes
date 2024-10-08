@@ -1,0 +1,3 @@
+# Context parallelism
+
+随着flash attention的出现和长上下文的需求，输入的序列长度逐渐扩展到了百万级别，而已有的并行方案的划分维度受限于attention模块中的head数量，不能充分利用硬件资源。Context parallelism在满足attention语义的前提下，插入了额外通信交换kv，把序列均分到所有的device上，也同时均匀划分了计算和通信。

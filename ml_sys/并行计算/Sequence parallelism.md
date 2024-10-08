@@ -1,0 +1,3 @@
+# Sequence parallelism
+
+在大语言模型训练中，随着输入序列的增长，activation tensor所占的空间大小逐渐增加，单独应用tensor parallelism后一些模块前后的activation tensor成为了显存的瓶颈。Sequence parallelism通过进一步引入额外的通信将activation tensor也均分到所有的设备上。具体来说tensor parallel的Identity-AllReduce变为了AllGather-AllGather+ReduceScatter，AllReduce-Identity变为了ReduceScatter-AllGather。

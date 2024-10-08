@@ -1,0 +1,3 @@
+# Expert parallelism
+
+Mixtrue of Experts（MoE）增加了Feed Forward模块的参数，把传入的token分发到对应的expert中。虽然MoE的总参数量增加了，但是模型的表现优于与激活参数量相等的dense模型。从架构上看，大量的参数集中在了MoE部分，为了能在GPU上装下并保证效率，Expert parallelism把expert均分到所有的device上。目前主流的分布式方案中数据分发通过AlltoAll进行。
